@@ -23,7 +23,8 @@ const vaultSolana = new PublicKey("EtuhWPuFFZEvytybMFt545JZ3R8tUMLuFsGjju6PNvGE"
 const connection = new Connection(clusterApiUrl("devnet"));
 
 const PORT = 8080;
-const BASE_URL = `http://localhost:${PORT}`;
+// const BASE_URL = `http://localhost:${PORT}`;
+const BASE_URL = `https://dexola-nft.vercel.app`;
 
 // Express app setup
 const app = express();
@@ -36,12 +37,10 @@ app.use(
     })
 );
 
-// Routes
 app.get("/actions.json", getActionsJson);
 app.get("/api/actions/mint-nft", getMintNFT);
 app.post("/api/actions/mint-nft", postMintNFT);
 
-// Route handlers
 function getActionsJson(req, res) {
     const payload = {
         rules: [
